@@ -1,0 +1,39 @@
+Để tùy chỉnh MarkdownIT cho giống giao diện của ChatGPT, bạn có thể thực hiện các bước sau:
+
+1. Cài đặt MarkdownIT: 
+   - Bạn có thể cài đặt thư viện markdown-it bằng câu lệnh `npm install markdown-it`.
+   - Hoặc thêm đoạn mã `<script>` dưới đây vào tệp HTML của bạn:
+     ```html
+     <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+     ```
+
+2. Tạo một đối tượng MarkdownIT:
+   - Sử dụng JavaScript, bạn có thể tạo một đối tượng MarkdownIT bằng cách gọi hàm `markdownit()`:
+     ```javascript
+     const md = markdownit();
+     ```
+   - Nếu bạn muốn sử dụng các tùy chọn cấu hình, bạn có thể truyền chúng qua đối số cho hàm `markdownit()`.
+
+3. Tùy chỉnh MarkdownIT:
+   - Sử dụng các phương thức của MarkdownIT để tùy chỉnh cú pháp Markdown:
+     ```javascript
+     md.options.linkify = true; // Cho phép việc tạo liên kết tự động từ URL
+     md.options.typographer = true; // Cho phép việc format nhanh các ký tự đặc biệt
+     // Và các tùy chọn khác, xem thêm tại: https://markdown-it.github.io/markdown-it/#MarkdownIt.new
+     ```
+4. Chuyển đổi Markdown sang HTML:
+   - Sử dụng phương thức `render` của MarkdownIT để chuyển đổi định dạng Markdown sang HTML:
+     ```javascript
+     const markdownText = '## Hello, *ChatGPT*!';
+     const htmlText = md.render(markdownText);
+     ```
+
+5. Hiển thị kết quả HTML:
+   - Đặt kết quả HTML vào phần tử HTML mong muốn để hiển thị:
+     ```javascript
+     const outputElement = document.getElementById('output');
+     outputElement.innerHTML = htmlText;
+     ```
+
+Lưu ý rằng với cách tùy chỉnh này, bạn chỉ có thể thay đổi cú pháp Markdown và HTML kết quả, không phải giao diện người dùng của ChatGPT. Để tương 
+thích hoàn toàn với giao diện ChatGPT, bạn cần phải xem xét cách tích hợp MarkdownIT vào mã nguồn của ChatGPT.
